@@ -1,101 +1,73 @@
 package module5;
 
 class CarDoor {
-    public static boolean isDoorDriver() {
-	return doorDriver;
+    private static boolean door;
+
+    public static boolean isDoor() {
+	return door;
     }
 
-    public static void setDoorDriver(boolean doorDriver) {
-	CarDoor.doorDriver = doorDriver;
+    public static void setDoor(boolean door) {
+	CarDoor.door = door;
     }
 
-    public static boolean isDoorPassengerFront() {
-	return doorPassengerFront;
+    public static boolean isWindow() {
+	return window;
     }
 
-    public static void setDoorPassengerFront(boolean doorPassengerFront) {
-	CarDoor.doorPassengerFront = doorPassengerFront;
+    public static void setWindow(boolean window) {
+	CarDoor.window = window;
     }
 
-    public static boolean isDoorPassengerRearLeft() {
-	return doorPassengerRearLeft;
-    }
-
-    public static void setDoorPassengerRearLeft(boolean doorPassengerRearLeft) {
-	CarDoor.doorPassengerRearLeft = doorPassengerRearLeft;
-    }
-
-    public static boolean isDoorPassengerRearRight() {
-	return doorPassengerRearRight;
-    }
-
-    public static void setDoorPassengerRearRight(boolean doorPassengerRearRight) {
-	CarDoor.doorPassengerRearRight = doorPassengerRearRight;
-    }
-
-    public static boolean isWindowDriver() {
-	return windowDriver;
-    }
-
-    public static void setWindowDriver(boolean windowDriver) {
-	CarDoor.windowDriver = windowDriver;
-    }
-
-    public static boolean isWindowPassengerFront() {
-	return windowPassengerFront;
-    }
-
-    public static void setWindowPassengerFront(boolean windowPassengerFront) {
-	CarDoor.windowPassengerFront = windowPassengerFront;
-    }
-
-    public static boolean isWindowPassengerRearLeft() {
-	return windowPassengerRearLeft;
-    }
-
-    public static void setWindowPassengerRearLeft(boolean windowPassengerRearLeft) {
-	CarDoor.windowPassengerRearLeft = windowPassengerRearLeft;
-    }
-
-    public static boolean isWindowPassengerRearRight() {
-	return windowPassengerRearRight;
-    }
-
-    public static void setWindowPassengerRearRight(boolean windowPassengerRearRight) {
-	CarDoor.windowPassengerRearRight = windowPassengerRearRight;
-    }
-
-    private static boolean doorDriver;
-    private static boolean doorPassengerFront;
-    private static boolean doorPassengerRearLeft;
-    private static boolean doorPassengerRearRight;
-    private static boolean windowDriver;
-    private static boolean windowPassengerFront;
-    private static boolean windowPassengerRearLeft;
-    private static boolean windowPassengerRearRight;
+    private static boolean window;
 
     public CarDoor() {
-	doorDriver = false;
-	doorPassengerFront = false;
-	doorPassengerRearLeft = false;
-	doorPassengerRearRight = false;
-	windowDriver = false;
-	windowPassengerFront = false;
-	windowPassengerRearLeft = false;
-	windowPassengerRearRight = false;
+	door = false;
+	window = false;
     }
 
-    public CarDoor(boolean doorDriver, boolean doorPassengerFront, boolean doorPassengerRearLeft,
-	    boolean doorPassengerRearRight, boolean windowDriver, boolean windowPassengerFront,
-	    boolean windowPassengerRearLeft, boolean windowPassengerRearRight) {
-	this.doorDriver = doorDriver;
-	this.doorPassengerFront = doorPassengerFront;
-	this.doorPassengerRearLeft = doorPassengerRearLeft;
-	this.doorPassengerRearRight = doorPassengerRearRight;
-	this.windowDriver = windowDriver;
-	this.windowPassengerFront = windowPassengerFront;
-	this.windowPassengerRearLeft = windowPassengerRearLeft;
-	this.windowPassengerRearRight = windowPassengerRearRight;
+    public CarDoor(boolean door, boolean window) {
+	this.door = door;
+	this.window = window;
+    }
+
+    public static void openDoor() {
+	setDoor(true);
+    }
+
+    public static void closedDoor() {
+	setDoor(false);
+    }
+
+    public static void changeDoor() {
+	if (isDoor() == true)
+	    closedDoor();
+	openDoor();
+    }
+
+    public static void openWindows() {
+	setWindow(true);
 
     }
+
+    public static void closedWindow() {
+	setWindow(false);
+    }
+
+    public static void changeWindow() {
+	if (isWindow() == false)
+	    openDoor();
+	closedWindow();
+    }
+
+    public static void status() {
+	if (isDoor() == true) 
+	    System.out.print("Door open ,");
+	System.out.print("Door closed ,");
+
+	if (isWindow() == true)
+	    System.out.print("window open");
+	System.out.print("window closed");
+    }
+
 }
