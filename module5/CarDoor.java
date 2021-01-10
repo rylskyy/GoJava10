@@ -40,12 +40,14 @@ class CarDoor {
     }
 
     public static void changeDoor() {
-	if (isDoor() == true)
+	if (isDoor() && true)
 	    closedDoor();
-	openDoor();
+	else {
+	    openDoor();
+	}
     }
 
-    public static void openWindows() {
+    public static void openWindow() {
 	setWindow(true);
 
     }
@@ -55,19 +57,25 @@ class CarDoor {
     }
 
     public static void changeWindow() {
-	if (isWindow() == false)
-	    openDoor();
-	closedWindow();
+	if (isWindow() && true)
+	    closedWindow();
+	else {
+	    openWindow();
+	}
     }
 
     public static void status() {
-	if (isDoor() == true) 
+	if (isDoor() && true)
 	    System.out.print("Door open ,");
-	System.out.print("Door closed ,");
+	else {
+	    System.out.print("Door closed ,");
+	}
 
-	if (isWindow() == true)
+	if (isWindow() && true)
 	    System.out.print("window open");
-	System.out.print("window closed");
+	else {
+	    System.out.print("window closed");
+	}
     }
 
 }
